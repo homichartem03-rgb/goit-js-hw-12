@@ -27,6 +27,7 @@ body {
 .form {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 8px;
   margin-top: 36px;
   margin-bottom: 32px;
@@ -111,4 +112,24 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.load-more-btn {
+  display: block;
+  min-width: 125px;
+  height: 40px;
+  margin: 32px auto 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background-color: #6c8cff;
+}
+
+.load-more-btn.is-hidden {
+  display: none;
 }

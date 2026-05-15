@@ -1,7 +1,6 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
 const gallery = document.querySelector('.gallery');
 
 const lightbox = new SimpleLightbox('.gallery a', {
@@ -12,21 +11,31 @@ const lightbox = new SimpleLightbox('.gallery a', {
 const loader = document.querySelector('.loader');
 
 export function clearGallery() {
-    gallery.innerHTML = '';
+  gallery.innerHTML = '';
 }
 
 export function showLoader() {
-    loader.classList.remove('is-hidden');
+  loader.classList.remove('is-hidden');
 }
 
 export function hideLoader() {
-    loader.classList.add('is-hidden');
+  loader.classList.add('is-hidden');
+}
+
+const loadMoreBtn = document.querySelector('.load-more-btn');
+
+export function showLoadMoreBtn() {
+  loadMoreBtn.classList.remove('is-hidden');
+}
+
+export function hideLoadMoreBtn() {
+  loadMoreBtn.classList.add('is-hidden');
 }
 
 export function createGallery(images) {
-    const markup = images
+  const markup = images
     .map(image => {
-        return `
+      return `
         <li class="gallery-item">
         <a class="gallery-link" href="${image.largeImageURL}">
             <img class="gallery-image" src="${image.webformatURL}" alt="${image.tags}"/>
@@ -56,9 +65,9 @@ export function createGallery(images) {
         </div>
         </li>
         `;
+    })
+    .join('');
 
-    }).join('');
-
-    gallery.insertAdjacentHTML('beforeend', markup);
-    lightbox.refresh();
+  gallery.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
 }
